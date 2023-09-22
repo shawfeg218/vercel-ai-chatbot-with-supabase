@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 import { auth } from '@/auth'
-import { clearChats } from '@/app/actions'
+// import { clearChats } from '@/app/actions'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Sidebar } from '@/components/sidebar'
 import { SidebarList } from '@/components/sidebar-list'
@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/icons'
 import { SidebarFooter } from '@/components/sidebar-footer'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { ClearHistory } from '@/components/clear-history'
+// import { ClearHistory } from '@/components/clear-history'
 import { UserMenu } from '@/components/user-menu'
 import { cookies } from 'next/headers'
 
@@ -33,7 +33,7 @@ export async function Header() {
             </React.Suspense>
             <SidebarFooter>
               <ThemeToggle />
-              <ClearHistory clearChats={clearChats} />
+              {/* <ClearHistory clearChats={clearChats} /> */}
             </SidebarFooter>
           </Sidebar>
         ) : (
