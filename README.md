@@ -1,7 +1,4 @@
-<a href="https://chat.vercel.ai/">
-  <img alt="Next.js 13 and app template Router-ready AI chatbot." src="https://chat.vercel.ai/opengraph-image.png" />
-  <h1 align="center">Next.js AI Chatbot</h1>
-</a>
+<h1 align="center">Next.js AI Chatbot</h1>
 
 An open-source AI chatbot app generated with [template](https://github.com/supabase-community/vercel-ai-chatbot) create by [
 Supabase Community](https://github.com/supabase-community) forked from [ai-chatbot](https://github.com/vercel-labs/ai-chatbot).
