@@ -1,6 +1,7 @@
 import 'server-only'
 import { OpenAIStream, StreamingTextResponse } from 'ai'
-import { Configuration, OpenAIApi } from 'openai-edge'
+// import { Configuration, OpenAIApi } from 'openai-edge'
+import OpenAI from 'openai'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from '@/lib/db_types'
@@ -8,13 +9,17 @@ import { Database } from '@/lib/db_types'
 import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils'
 
-export const runtime = 'edge'
-
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 })
 
-const openai = new OpenAIApi(configuration)
+export const runtime = 'edge'
+
+// const configuration = new Configuration({
+//   apiKey: process.env.OPENAI_API_KEY
+// })
+
+// const openai = new OpenAIApi(configuration)
 
 export async function POST(req: Request) {
   const cookieStore = cookies()
@@ -31,14 +36,13 @@ export async function POST(req: Request) {
     })
   }
 
-  if (previewToken) {
-    configuration.apiKey = previewToken
-  }
+  // if (previewToken) {
+  //   configuration.apiKey = previewToken
+  // }
 
-  const res = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
+  const res = await openai.chat.completions.create({
+    model: 'gpt-4',
     messages,
-    temperature: 0.7,
     stream: true
   })
 
